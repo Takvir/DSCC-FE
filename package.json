@@ -1,6 +1,7 @@
 {
   "name": "dscc",
   "version": "0.0.0",
+  "start": "ng serve --proxy-config proxy.conf.json",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+
+
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",

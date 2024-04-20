@@ -1,0 +1,127 @@
+<div class="bg-white shadow-md rounded-lg p-4 mb-4">
+  <div class="flex justify-between items-center h-full">
+    <h1 class="text-2xl font-bold tracking-widest">DSCC Holding Tax Bill</h1>
+    <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Sign Out</button>
+  </div>
+</div>
+
+
+
+<div class="mt-2">
+  <div class="flex justify-center items-center mb-1"> <!-- Added items-center for vertical alignment -->
+    <div class="mr-4"><img src="../../assets/mmblLogo.png" class="w-32" /></div> <!-- Added mr-4 for margin-right -->
+    <div><img src="../../assets/DsccLogo.png" class="w-20"></div>
+  </div>
+</div>
+
+<div class="max-w-md mx-auto my-8">
+  <div class="bg-green-100 p-6 rounded-lg shadow-md mb-4">
+    <div class="mb-4">
+      <label class="block text-gray-800 font-bold mb-2" for="eHoldingNumber">e-Holding Number:</label>
+      <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" type="text" id="eHoldingNumber" [(ngModel)]="eHoldingNumber" [disabled]="getDataButtonDisabled">
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-800 font-bold mb-2" for="quarter">Quarter:</label>
+      <select class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" id="quarter" [(ngModel)]="quarter">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-800 font-bold mb-2" for="mobileNumber">Mobile Number:</label>
+      <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+             type="text" id="mobileNumber" [(ngModel)]="mobileNumber" required>
+     <!-- Error message -->
+    </div>
+    <div class="grid grid-cols-2 w-full gap-2 ">
+      <button class="mt-4 px-4 py-2 text-white rounded-md font-bold"
+        [ngClass]="{'bg-green-700 hover:bg-green-800': !getDataButtonDisabled && mobileNumber,
+                    'bg-gray-400 cursor-not-allowed': getDataButtonDisabled || !mobileNumber}"
+        (click)="fetchData()" [disabled]="getDataButtonDisabled || !mobileNumber">Get Data</button>
+
+      <!-- Reset Button -->
+      <button class=" mt-4  px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600 font-bold" (click)="resetPage()">Reset</button>
+    </div>
+
+  </div>
+</div>
+
+
+<div #printSection *ngIf="part1" class="mt-8 ml-8 mr-8 mb-8 border rounded-lg shadow-md bg-white p-6">
+
+
+  <div>
+    <div class="flex justify-center mb-1"> <!-- Added flex and justify-center class here -->
+    <img src="../../assets/mmblLogo.png" class="w-32" /> <!-- Added w-32 class for width -->
+
+  </div>
+
+  <div class="flex justify-center mb-1 font-bold text-lg tracking-widest underline ">
+    <h1>Office Copy (Holding Tax)</h1>
+  </div>
+  <h2 class="text-xl font-semibold mb-2">Bill Copy:</h2>
+  <p class="text-base tracking-wider antialiased">
+    <span class="text-gray-700 font-semibold  inline-block w-44">E-Holding Number:</span> {{ eHoldingNumber }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Transaction ID:</span> {{ transactionId }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Time:</span> {{ timeNow   }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Quarter:</span> {{ quarter }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Biller Name:</span> Dhaka South City Corporation <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Biller ID:</span> Upto {{ bankUserId }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Transaction Type:</span> Bill Pay by CASH <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Amount:</span> {{ amount }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Beneficiary Name:</span> {{ part4 }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Holding Number:</span> {{ part5 }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Mobile Number:</span> {{ mobileNumber }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Home Address:</span> {{ part6 }}{{ part7 }} <br>
+  </p>
+  </div>
+
+  <div class="mt-5">
+    <div class="flex justify-center mb-1"> <!-- Added flex and justify-center class here -->
+    <img src="../../assets/mmblLogo.png" class="w-32" /> <!-- Added w-32 class for width -->
+
+  </div>
+
+  <div class="flex justify-center mb-1 font-bold text-lg tracking-widest underline ">
+    <h1>Office Copy (Holding Tax)</h1>
+  </div>
+  <h2 class="text-xl font-semibold mb-2">Bill Copy:</h2>
+  <p class="text-base tracking-wider antialiased">
+    <span class="text-gray-700 font-semibold  inline-block w-44">E-Holding Number:</span> {{ eHoldingNumber }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Transaction ID:</span> {{ transactionId }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Time:</span> {{ timeNow   }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Quarter:</span> {{ quarter }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Biller Name:</span> Dhaka South City Corporation <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Biller ID:</span> Upto {{ bankUserId }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Transaction Type:</span> Bill Pay by CASH <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Amount:</span> {{ amount }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Beneficiary Name:</span> {{ part4 }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Holding Number:</span> {{ part5 }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Mobile Number:</span> {{ mobileNumber }} <br>
+    <span class="text-gray-700 font-semibold  inline-block w-44">Home Address:</span> {{ part6 }}{{ part7 }} <br>
+  </p>
+  </div>
+
+
+
+
+</div>
+
+<div class="flex justify-center mb-8" *ngIf="part1">
+  <div class="grid grid-cols-2 gap-20">
+    <button class="mt-4 w-48 px-4 py-2 text-white bg-blue-700 hover:bg-green-600 rounded-md font-bold" (click)="printDiv()">Print</button>
+    <button class="mt-4 w-48 px-4 py-2 text-white bg-green-700 rounded-md hover:bg-green-600 focus:outline-none focus:bg-red-600 font-bold" (click)="makePayment()">Make Payment</button>
+  </div>
+</div>
+
+<div *ngIf="!noData" class="border border-gray-300 p-4 text-center text-5xl font-bold">
+  <h1>No Data Found</h1>
+</div>
+
+
+
+
+
+

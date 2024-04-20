@@ -1,0 +1,33 @@
+<div class="body bg-green-100 min-h-screen">
+  <div class=" from-gray-900 to-gray-600 flex justify-center items-center w-screen h-screen p-5">
+<div class="bg-white shadow-md  rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/3 ">
+<div class="flex justify-center mb-4"> <!-- Added flex and justify-center class here -->
+  <img src="../../assets/mmblLogo.png" class="w-32" /> <!-- Added w-32 class for width -->
+</div>
+
+<h1 class="text-2xl font-semibold mt-3 mb-5 text-center text-gray-900 dark:text-gray-200 bg-yellow-100 p-2 rounded-md shadow-xl">Welcome to DSCC Holding Tax</h1>
+<h1 class="text-xl font-semibold mt-2 mb-4 text-center text-gray-900 dark:text-gray-200">Sign-in</h1>
+<form>
+    <div class="mb-4">
+        <label class="block text-gray-700 dark:text-gray-400 text-sm font-bold mb-2" for="email">
+            Email
+        </label>
+        <input class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" id="email" type="email" placeholder="Email">
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-700 dark:text-gray-400 text-sm font-bold mb-2" for="password">
+            Password
+        </label>
+        <input class="shadow appearance-none border  rounded-md w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" id="password" type="password" placeholder="******************">
+    </div>
+    <div class="flex items-center justify-between">
+        <button (click)="redirectToDashboard()" class="bg-green-700 hover:bg-green-700 text-white w-full font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline dark:bg-green-600" type="button">
+            Login
+        </button>
+    </div>
+</form>
+</div>
+</div>
+
+
+</div>
